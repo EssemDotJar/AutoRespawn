@@ -62,8 +62,13 @@ public class Main extends JavaPlugin implements Listener, CommandExecutor {
 				player.removePotionEffect(effect.getType());
 			}
 
-			Location location = new Location(getWorld(), getXYZ("x"), getXYZ("y"), getXYZ("z"), getYawPitch("yaw"), getYawPitch("pitch")); // Get respawn point from config and teleport player
-			player.teleport(location);
+			Location location = new Location(getWorld(), 
+							 getXYZ("x"), 
+							 getXYZ("y"), 
+							 getXYZ("z"), 
+							 getYawPitch("yaw"), 
+							 getYawPitch("pitch")); // Get respawn point from config
+			player.teleport(location); // Teleport player to respawn point
 		}
 	}
 
