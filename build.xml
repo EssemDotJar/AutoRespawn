@@ -1,0 +1,8 @@
+<project name="AutoRespawn" default="Build">
+    <target name="Build">
+        <jar jarfile="F:/___Plugin Development, Minecraft Server/TestServer/plugins/${ant.project.name}.jar"
+             basedir="./target/classes/"
+             includes="**/*">
+        </jar>
+    </target>
+</project>

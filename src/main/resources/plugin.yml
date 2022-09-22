@@ -1,0 +1,9 @@
+main: me.essem.main.Main
+name: AutoRespawn
+version: 1.0
+
+commands:
+  setrespawn:
+    description: Set respawn point.
+    usage: /setrespawn
+    permission: autorespawn.setrespawn
