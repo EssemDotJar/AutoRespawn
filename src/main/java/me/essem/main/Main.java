@@ -39,6 +39,7 @@ public class Main extends JavaPlugin implements Listener, CommandExecutor {
 			getConfig().set("respawnpoint.z", location.getZ());
 			getConfig().set("respawnpoint.yaw", location.getYaw());
 			getConfig().set("respawnpoint.pitch", location.getPitch());
+			
 			saveConfig();
 		}
 
@@ -52,7 +53,7 @@ public class Main extends JavaPlugin implements Listener, CommandExecutor {
 		Player player = (Player) event.getEntity();
 
 		if ((player.getHealth() - event.getFinalDamage()) <= 0) { // Check if damage is fatal
-			event.setCancelled(true);
+			event.setCancelled(true); // Make sure the player does not die
 
 			player.setHealth(20); // Max health
 			player.setFoodLevel(20); // Max saturation
@@ -61,11 +62,15 @@ public class Main extends JavaPlugin implements Listener, CommandExecutor {
 				player.removePotionEffect(effect.getType());
 			}
 
-			Location location = new Location(getWorld(), getXYZ("x"), getXYZ("y"), getXYZ("z"), getYawPitch("yaw"), getYawPitch("pitch"));
+			Location location = new Location(getWorld(), getXYZ("x"), getXYZ("y"), getXYZ("z"), getYawPitch("yaw"), getYawPitch("pitch")); // Get respawn point from config and teleport player
 			player.teleport(location);
 		}
 	}
 
+	/*
+	* GETTERS:
+	*/
+	
 	public World getWorld() {
 		return Bukkit.getWorld(getConfig().get("respawnpoint.world").toString());
 	}
