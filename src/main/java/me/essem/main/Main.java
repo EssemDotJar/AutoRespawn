@@ -46,6 +46,10 @@ public class Main extends JavaPlugin implements Listener, CommandExecutor {
 		return false;
 	}
 
+	/*
+	* EVENTS:
+	*/
+	
 	@EventHandler
 	public void onEntityDamage(EntityDamageEvent event) {
 		if (!(event.getEntity() instanceof Player)) return;
